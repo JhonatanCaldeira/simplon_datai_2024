@@ -10,11 +10,19 @@ def fibonnaci(number):
     i_1 = 1
     i_2 = 0
 
-    while (i < number):
+    for f in range(1, number):
         print(i)
         i = i_1 + i_2
         i_2 = i_1
         i_1 = i
 
 
-fibonnaci(145)
+def fibonnaci_of(n):
+    if n in {0, 1}:
+        return n
+
+    return fibonnaci_of(n - 1) + fibonnaci_of(n - 2)
+
+
+fibonnaci(15)
+print([fibonnaci_of(n) for n in range(15)])
