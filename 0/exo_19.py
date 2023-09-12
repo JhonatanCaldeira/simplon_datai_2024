@@ -1,3 +1,7 @@
+# 19. Écrivez une fonction qui prend une liste de mots en entrée et renvoie une
+# nouvelle liste contenant les mots dont la première lettre est une voyelle (a, e, i, o, u)
+# en utilisant une boucle "while".
+
 def check_first_letter(list_string):
     i = 0
     list_of_words = []

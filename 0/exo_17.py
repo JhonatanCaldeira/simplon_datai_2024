@@ -1,17 +1,11 @@
-secret_number = 42
-number = 0
+# 17. Écrivez une fonction qui prend un nombre entier en entrée et affiche tous les nombres de 1
+# jusqu'à ce nombre (inclut) en utilisant une boucle "while".
 
-while number != secret_number:
-    number = input("Chosissez un numero: ")
-    print(" ")
+def final_countdown(number):
+    i = 1
+    while i <= number:
+        print(i)
+        i += 1
 
-    if number.isnumeric():
-        if int(number) == secret_number:
-            print("Felicitations! Vous avez trouvé le nombre secret!")
-            break
-        elif int(number) < secret_number:
-            print(f'Le nombre secret est plus grand que {number}')
-            print(" ")
-        else:
-            print(f'Le nombre secret est plus petit que {number}')
-            print(" ")
+
+final_countdown(15)

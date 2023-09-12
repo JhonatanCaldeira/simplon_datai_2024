@@ -1,4 +1,7 @@
 
+# 1. Écrivez un programme qui demande à l'utilisateur de saisir un nombre entier positif et affiche tous les nombres
+# de 1 jusqu'à ce nombre (inclus).
+
 number = -1
 while int(number) < 0:
     number = input(

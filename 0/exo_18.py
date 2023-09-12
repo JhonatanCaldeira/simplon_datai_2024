@@ -1,3 +1,6 @@
+# 18. Écrivez une fonction qui prend une liste de nombres en entrée et renvoie une nouvelle
+# liste contenant uniquement les nombres positifs en utilisant une boucle "while".
+
 def check_positive(number_list):
     i = 0
     list_of_positive = []
