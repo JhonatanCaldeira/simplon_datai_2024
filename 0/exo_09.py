@@ -1,4 +1,6 @@
-# 9. Écrivez une fonction qui prend une liste de nombres en entrée et renvoie une nouvelle liste contenant uniquement les nombres pairs de la liste initiale.
+# 9. Écrivez une fonction qui prend une liste de nombres en entrée et
+# renvoie une nouvelle liste contenant uniquement les nombres pairs
+# de la liste initiale.
 
 def return_even(number_list: list):
     return [x for x in number_list if x % 2 == 0]

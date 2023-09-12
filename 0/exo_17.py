@@ -1,4 +1,5 @@
-# 17. Écrivez une fonction qui prend un nombre entier en entrée et affiche tous les nombres de 1
+# 17. Écrivez une fonction qui prend un nombre entier en entrée et
+# affiche tous les nombres de 1
 # jusqu'à ce nombre (inclut) en utilisant une boucle "while".
 
 def final_countdown(number):
