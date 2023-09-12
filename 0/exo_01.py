@@ -5,9 +5,14 @@ while int(number) < 0:
         "Chose one positive number (grater then zero) or zero to exit: ")
     print("")
 
-    if int(number) < 0:
-        print("Invalid Number!")
-        print("")
+    if number.isnumeric():
+        if int(number) < 0:
+            print("Invalid Number!")
+            print("")
+        else:
+            for i in range(1, int(number)+1):
+                print(i)
     else:
-        for i in range(1, int(number)+1):
-            print(i)
+        print(f'{number.upper()} is not a number!')
+        print("")
+        number = -1
