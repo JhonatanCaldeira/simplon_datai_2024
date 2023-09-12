@@ -7,4 +7,6 @@ def check_number(number):
         return 'nule'
 
 
+print(check_number(0))
+print(check_number(1))
 print(check_number(-1))
