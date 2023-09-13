@@ -6,9 +6,19 @@ import numpy as np
 
 
 def replace_by_0_1(table: np):
-    table[table >= 5] = 1
     table[table < 5] = 0
+    table[table >= 5] = 1
+    print(table)
+
+
+def replace_by_0_1_v2(table: np):
+    np.place(table, table < 5, [0])
+    np.place(table, table >= 5, [1])
+    print(table)
 
 
 table = np.arange(11)
 replace_by_0_1(table)
+
+table = np.arange(11)
+replace_by_0_1_v2(table)
