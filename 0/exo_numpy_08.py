@@ -17,8 +17,16 @@ def replace_by_0_1_v2(table: np):
     print(table)
 
 
+def replace_by_0_1_v3(table: np):
+    np_array = np.asarray([0 if num < 5 else 1 for num in table])
+    print(np_array)
+
+
 table = np.arange(11)
 replace_by_0_1(table)
 
 table = np.arange(11)
 replace_by_0_1_v2(table)
+
+table = np.arange(11)
+replace_by_0_1_v3(table)

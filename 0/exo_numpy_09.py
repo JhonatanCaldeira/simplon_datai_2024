@@ -3,5 +3,5 @@
 
 import numpy as np
 
-table = np.arange(start=1, stop=10)
-print(table.reshape(3, 3))
+table = np.random.randint(10, size=(3, 3))
+print(table)
