@@ -1,3 +1,34 @@
+Exercice 6 - Traitement des valeurs manquantes :
+- Téléchargez le fichier CSV "sales_data.csv" à partir du lien suivant : https://github.com/ine-rmotr-curriculum/FreeCodeCamp-Pandas-Real-Life-Example/blob/master/data/sales_data.csv
+- Chargez le fichier dans un DataFrame nommé "sales_df".
+- Affichez le nombre de valeurs manquantes dans chaque colonne du DataFrame.
+
+Exercice 7 - Suppression des doublons :
+- Téléchargez le fichier CSV "GlobalLandTemperaturesByMajorCity.csv" à partir du lien suivant : https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data?select=GlobalLandTemperaturesByMajorCity.csv
+- Chargez le fichier dans un DataFrame nommé "duplicate_df".
+- Supprimez les lignes en double du DataFrame.
+- Afficher la taille des Dataframes avant et après
+
+Exercice 8 - Remplacement des valeurs incorrectes :
+- Chargez le fichier dans un DataFrame nommé "temperature_df".
+- Remplacez les valeurs négatives dans la colonne "AverageTemperature" par la valeur absolue de ces valeurs.
+- Afficher le minimum avant et après
+
+Exercice 9 - Extraction de données :
+- Téléchargez le fichier CSV "email_jetable.csv" à partir du lien suivant : https://sql.sh/ressources/sql-email-jetable/email_jetable.csv
+- Chargez le fichier dans un DataFrame nommé "emails_df".
+- Donnez un nom aux colonnes: [index, emails]
+- Créez une nouvelle colonne "extension" contenant uniquement l’extension du domaines des adresses e-mail (com, fr etc…).
+- Affichez les valeurs unique de la colonne “extension”
+
+Exercice 10 - Transformation de données :
+- Téléchargez le fichier CSV "student_grades.csv" à partir du lien suivant : https://raw.githubusercontent.com/datasciencedojo/datasets/master/student_grades.csv
+- Chargez le fichier dans un DataFrame nommé "grades_df".
+- Donnez un nom aux colonnes: ['ID','salle','note']
+- Ajoutez une colonne note_dec qui contient les notes de 0 à 17 (E- à A+)
+- Convertissez les notes pour qu’elles soient entre 0 et 20 en appliquant une fonctino
+- Ajoutez une colonne "result" qui contiendra "Réussite" pour les étudiants ayant une note supérieure ou égale à 10, sinon "Échec".
+
 Exercice 1 - Visualisation des notes des étudiants :
 
 a) Chargez le fichier "student_grades.csv" dans un DataFrame nommé "grades_df".
