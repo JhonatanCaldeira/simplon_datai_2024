@@ -53,6 +53,10 @@ def load_product_type(df, cnx):
                            if_exists='append', index=None)
 
 
+def load_product(df, cnx):
+    df.to_sql('tb_product', con=cnx, if_exists='append', index=None)
+
+
 try:
 
     from sqlalchemy import URL
@@ -78,31 +82,25 @@ try:
         "SELECT id_product_type, product_name_type FROM tb_product_type")
     df_prod_type = pd.read_sql(query_product_type, dbConnection)
 
-    df_products['CONDITION'] = df_products['CONDITION'].apply(
-        lambda x: get_index_from_list(, x))
-
     df_products['FAMILLE ARTICLE'] = df_products['FAMILLE ARTICLE'].apply(
-        lambda x: get_index_from_list(result_prod_type, x))
+        lambda x: int(df_prod_type.loc[df_prod_type['product_name_type']
+                                       == x]['id_product_type'].values))
 
-    print(df_products)
+    df_products['CONDITION'] = df_products['CONDITION'].apply(
+        lambda x: int(df_pack.loc[df_pack['packing_name']
+                                  == x]['id_packing_type'].values))
 
-    # print(df_products)
-    # for code, name, product_type, product_pack, price in df_products.values.tolist():
-    #     # print(code, name,
-    #     #       get_index_from_list(result_prod_type, product_type),
-    #     #       get_index_from_list(result_pack, product_pack),
-    #     #       price.replace(",", "."))
-    #     try:
-    #         cursor.execute(add_product, (code, name, price.replace(",", "."),
-    #                                      get_index_from_list(
-    #             result_prod_type, product_type),
-    #             get_index_from_list(
-    #             result_pack, product_pack),
-    #         ))
-    #     except Exception as e:
-    #         print(e)
+    df_products['PU HT'] = df_products['PU HT'].str.replace(",", ".")
 
-    # dbConnection.commit()
+    df_products.rename(columns={'Code article': 'code_article',
+                                'LIBELLE ARTICLE': 'product_name',
+                                'FAMILLE ARTICLE': 'id_product_type',
+                                'CONDITION': 'id_packing_type',
+                                'PU HT': 'price'}, inplace=True)
+
+    load_product(df_products, dbConnection)
+
+    dbConnection.commit()
 
 except Exception as e:
     dbConnection.rollback()
