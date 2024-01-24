@@ -20,4 +20,3 @@ def get_one_quote():
         return_quote.append(document["Author"])
         
     return json.dumps(return_quote)
-    # return random_document

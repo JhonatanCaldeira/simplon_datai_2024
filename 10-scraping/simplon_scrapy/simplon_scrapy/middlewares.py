@@ -8,6 +8,9 @@ from scrapy import signals
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
+import pymongo
+from simplon_scrapy.items import LogError
+
 
 class SimplonScrapySpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -61,6 +64,11 @@ class SimplonScrapyDownloaderMiddleware:
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
 
+    def __init__(self):
+        self.mongo_uri = "localhost:27017"
+        self.mongo_db = "scrapping-database"
+        self.collection_name = "scrapy_log"
+
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
@@ -82,6 +90,16 @@ class SimplonScrapyDownloaderMiddleware:
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
+        if response.status != 200:
+            log_item = LogError()
+            log_item["status"] = response.status
+            log_item["text"] = response.text
+            log_item["url_request"] = request.url
+            
+            client = pymongo.MongoClient(self.mongo_uri)
+            db = client[self.mongo_db]
+
+            db[self.collection_name].insert_one(ItemAdapter(log_item).asdict())
 
         # Must either;
         # - return a Response object

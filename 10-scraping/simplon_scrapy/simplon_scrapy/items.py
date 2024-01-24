@@ -10,3 +10,13 @@ class SimplonScrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+class Quotes(scrapy.Item):
+    quote = scrapy.Field()
+    author = scrapy.Field()
+    tags = scrapy.Field()
+
+class LogError(scrapy.Item):
+    status = scrapy.Field()
+    text = scrapy.Field()
+    url_request = scrapy.Field()
